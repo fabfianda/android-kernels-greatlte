@@ -116,3 +116,13 @@ all.config
 
 # fetched Android config fragments
 android/configs/android-*.cfg
+
+# misc build files
+log_*.txt
+/defconfig
+/arch/arm64/boot/dts/exynos/*.dtb
+/scripts/rkp_cfp/tmp/
+/security/defex_lsm/defex_packed_rules.inc
+/security/defex_lsm/pack_rules
+*.pyc
+/source
