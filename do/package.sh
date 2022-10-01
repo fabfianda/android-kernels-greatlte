@@ -1,9 +1,17 @@
-cp arch/arm64/boot/Image ../tools/AnyKernel3/
+#
+rm ../tools/AnyKernel3/Imag*
+rm ../tools/AnyKernel3/*.img
 
+#
+cp arch/arm64/boot/Image ../tools/AnyKernel3/
+cp arch/arm64/boot/dtb.img ../tools/AnyKernel3/
+
+#
 ./do/vermagic.sh
 
+#
 cd ../tools/AnyKernel3
-
 ./package.sh
 
+#
 cd -
