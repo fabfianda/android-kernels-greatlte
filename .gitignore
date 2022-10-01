@@ -126,3 +126,6 @@ log_*.txt
 /security/defex_lsm/pack_rules
 *.pyc
 /source
+
+# nethunter
+/kali-nethunter-kernel
