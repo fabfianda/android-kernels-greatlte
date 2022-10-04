@@ -4,11 +4,13 @@ export CROSS_COMPILE=$KDIR/toolchain/gcc-cfp/gcc-cfp-jopp-only/aarch64-linux-and
 export ANDROID_MAJOR_VERSION=p
 export ARCH=arm64
 export SUBARCH=arm64
+export TARGET_DIR="/tmp/build"
 
 # build
 echo "Compiling..."
-make ARCH=arm64 exynos8895-greatlte_defconfig
-make INSTALL_MOD_PATH=/tmp/build/ VERBOSE=1 ARCH=arm64 modules > log_std.txt 2> log_err.txt
-make INSTALL_MOD_PATH=/tmp/build/ VERBOSE=1 ARCH=arm64 modules_install > log_std.txt 2> log_err.txt
+
+[ -d $TARGET_DIR ] && rm -rf $TARGET_DIR
+
+make -C "$KDIR" INSTALL_MOD_PATH="$TARGET_DIR" INSTALL_MOD_STRIP=1 CROSS_COMPILE="$CROSS_COMPILE" ARCH=arm64 modules_install > log_std.txt 2> log_err.txt
 echo "Done"
 tail log_std.txt
