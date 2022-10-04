@@ -11,7 +11,7 @@ export DEF_CONFIG=nethunter_defconfig
 
 # build
 echo "Compiling..."
-make ARCH=arm64 "$DEF_CONFIG"
-make VERBOSE=1 ARCH=arm64 -j24 > log_std.txt 2> log_err.txt
+make ARCH=arm64 CROSS_COMPILE="$CROSS_COMPILE" "$DEF_CONFIG"
+make CROSS_COMPILE="$CROSS_COMPILE" ARCH=arm64 -j24 > log_std.txt 2> log_err.txt
 echo "Done"
 tail log_std.txt
